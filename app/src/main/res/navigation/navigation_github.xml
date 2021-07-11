@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_github"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.vinicius.githubapi.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_home_to_detailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/detailFragment">
+            <argument
+                android:name="repository"
+                app:argType="com.vinicius.githubapi.data.ui.Repository" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.vinicius.githubapi.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/search_fragment"/>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.vinicius.githubapi.ui.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/detail_fragment">
+
+        <argument
+            android:name="repository"
+            app:argType="com.vinicius.githubapi.data.ui.Repository"
+            app:nullable="false" />
+
+    </fragment>
+
+</navigation>

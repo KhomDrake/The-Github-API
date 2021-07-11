@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SearchInput">
+        <attr name="android:hint"/>
+        <attr name="minToSearch" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ErrorView">
+        <attr name="errorTitle" format="reference"/>
+        <attr name="errorBody" format="reference"/>
+    </declare-styleable>
+
+</resources>

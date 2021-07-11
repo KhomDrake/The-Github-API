@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GithubApi</string>
+    <string name="menu_home_title">Home</string>
+    <string name="menu_search_title">Search</string>
+    <string name="home_title">Home</string>
+    <string name="search_repo_hint">Search Repos by language</string>
+    <string name="selected_language">Language choose: %s</string>
+    <string name="repo_author">Author: %s</string>
+    <string name="repo_stars">Stars: %s</string>
+
+    <string name="error_view_button_default">Try Again</string>
+    <string name="error_view_title_default">An error has occurred</string>
+    <string name="error_view_body_default">It was not possible to load the information</string>
+
+    <string name="error_home_invalid_language_title">Language not found</string>
+    <string name="error_home_invalid_language_body">Please, choose a language that exist</string>
+    <string name="pagination_empty_text_default">No more items to load</string>
+</resources>
