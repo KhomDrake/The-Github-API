@@ -5,7 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.vinicius.githubapi.data.network.RepositoryResponse
 import com.vinicius.githubapi.remote.network.GithubApi
-import com.vinicius.githubapi.remote.network.RepositoryPagingSource
+import com.vinicius.githubapi.remote.paging.RepositoryPagingSource
 import kotlinx.coroutines.flow.Flow
 
 const val PAGE_SIZE = 20

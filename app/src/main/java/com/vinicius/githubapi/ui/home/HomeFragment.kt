@@ -19,7 +19,7 @@ import br.com.arch.toolkit.statemachine.state
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.vinicius.githubapi.R
 import com.vinicius.githubapi.ui.adapter.RepositoryAdapter
-import com.vinicius.githubapi.ui.adapter.RepositoryLoaderAdapter
+import com.vinicius.githubapi.ui.adapter.LoaderAdapter
 import com.vinicius.githubapi.ui.handleException
 import com.vinicius.githubapi.ui.widget.ErrorView
 import com.vinicius.githubapi.ui.widget.SearchInput
@@ -126,7 +126,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private fun setupData() {
-        repos.adapter = adapter.withLoadStateFooter(RepositoryLoaderAdapter {
+        repos.adapter = adapter.withLoadStateFooter(LoaderAdapter(R.layout.repository_item_loading) {
             loadRepos()
         })
         adapter.addOnPagesUpdatedListener {

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">GithubApi</string>
     <string name="menu_home_title">Home</string>
-    <string name="menu_search_title">Search</string>
+    <string name="menu_search_title">Search Users</string>
     <string name="home_title">Home</string>
     <string name="search_repo_hint">Search Repos by language</string>
     <string name="selected_language">Language choose: %s</string>
@@ -15,4 +15,18 @@
     <string name="error_home_invalid_language_title">Language not found</string>
     <string name="error_home_invalid_language_body">Please, choose a language that exist</string>
     <string name="pagination_empty_text_default">No more items to load</string>
+    <string name="repository_detail_description_title">Description:</string>
+    <string name="detail_tab_commit_text">Commits</string>
+    <string name="detail_tab_issues_text">Issues</string>
+    <string name="detail_tab_license_text">License</string>
+    <string name="detail_tab_links_text">Links</string>
+
+    <string name="detail_score">Score: %s</string>
+    <string name="detail_watcher">Watchers: %s</string>
+    <string name="detail_open_issues">Open Issues: %s</string>
+    <string name="detail_stars">Stars: %s</string>
+
+    <string name="search_users_title">Search Users</string>
+    <string name="search_users_hint">Search users by username</string>
+    <string name="search_users_home_user_text">Access user home</string>
 </resources>

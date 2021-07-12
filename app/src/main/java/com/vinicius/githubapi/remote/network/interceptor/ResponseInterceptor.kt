@@ -1,7 +1,9 @@
-package com.vinicius.githubapi.remote.network
+package com.vinicius.githubapi.remote.network.interceptor
 
 import com.google.gson.Gson
 import com.vinicius.githubapi.data.network.GithubError
+import com.vinicius.githubapi.remote.network.DefaultException
+import com.vinicius.githubapi.remote.network.InvalidQException
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException

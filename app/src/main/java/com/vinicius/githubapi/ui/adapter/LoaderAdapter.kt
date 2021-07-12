@@ -3,6 +3,7 @@ package com.vinicius.githubapi.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.appcompat.widget.AppCompatButton
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
@@ -10,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.arch.toolkit.delegate.viewProvider
 import com.vinicius.githubapi.R
 
-class RepositoryLoaderAdapter(
+class LoaderAdapter(
+    @LayoutRes
+    private val loadingLayout: Int,
     private val retry: () -> Unit
-) : LoadStateAdapter<RepositoryLoaderViewHolder>() {
-    override fun onBindViewHolder(holder: RepositoryLoaderViewHolder, loadState: LoadState) {
+) : LoadStateAdapter<LoaderViewHolder>() {
+    override fun onBindViewHolder(holder: LoaderViewHolder, loadState: LoadState) {
         when(holder) {
-            is RepositoryErrorViewHolder -> {
+            is ErrorViewHolder -> {
                 holder.bind(retry)
             }
         }
@@ -24,28 +27,28 @@ class RepositoryLoaderAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         loadState: LoadState
-    ): RepositoryLoaderViewHolder {
+    ): LoaderViewHolder {
         return when(loadState) {
             is LoadState.Error -> {
                 val view = LayoutInflater.from(parent.context).inflate(
                     R.layout.pagination_error, parent, false
                 )
-                RepositoryErrorViewHolder(view)
+                ErrorViewHolder(view)
             }
             else -> {
                 val view = LayoutInflater.from(parent.context).inflate(
-                    R.layout.repository_item_loading, parent, false
+                    loadingLayout, parent, false
                 )
-                RepositoryLoadingViewHolder(view)
+                LoadingViewHolder(view)
             }
         }
     }
 
 }
 
-abstract class RepositoryLoaderViewHolder(view: View): RecyclerView.ViewHolder(view)
+abstract class LoaderViewHolder(view: View): RecyclerView.ViewHolder(view)
 
-class RepositoryErrorViewHolder(view: View): RepositoryLoaderViewHolder(view) {
+class ErrorViewHolder(view: View): LoaderViewHolder(view) {
 
     private val errorButton: AppCompatButton by viewProvider(R.id.try_again)
 
@@ -55,4 +58,4 @@ class RepositoryErrorViewHolder(view: View): RepositoryLoaderViewHolder(view) {
 
 }
 
-class RepositoryLoadingViewHolder(view: View): RepositoryLoaderViewHolder(view)
+class LoadingViewHolder(view: View): LoaderViewHolder(view)

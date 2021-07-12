@@ -16,7 +16,7 @@ class Repositories(
 }
 
 @Parcelize
-class Repository(
+data class Repository(
     val id: Int,
     val name: String,
     val fullName: String,

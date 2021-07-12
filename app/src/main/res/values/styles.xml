@@ -26,6 +26,19 @@
 
     <style name="Github.Style.Text"/>
 
+    <style name="Github.Style.Text.Normal">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Github.Style.Text.Normal.Primary">
+        <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <style name="Github.Style.Text.Normal.Secondary">
+        <item name="android:textColor">@color/secondary_color</item>
+    </style>
+
     <style name="Github.Style.Text.Big">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/white</item>
@@ -53,8 +66,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Github.Style.Text.SubTitle.Big">
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="Github.Style.Text.SubTitle.Primary">
         <item name="android:textColor">@color/primary_color</item>
+    </style>
+
+    <style name="Github.Style.Text.SubTitle.Secondary">
+        <item name="android:alpha">.5</item>
     </style>
 
 </resources>

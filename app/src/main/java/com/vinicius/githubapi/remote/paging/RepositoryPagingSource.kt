@@ -1,8 +1,9 @@
-package com.vinicius.githubapi.remote.network
+package com.vinicius.githubapi.remote.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.vinicius.githubapi.data.network.RepositoryResponse
+import com.vinicius.githubapi.remote.network.GithubApi
 
 const val DEFAULT_PAGE = 1
 
