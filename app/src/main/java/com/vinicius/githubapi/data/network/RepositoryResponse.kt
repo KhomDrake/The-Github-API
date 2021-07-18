@@ -28,6 +28,8 @@ class RepositoryResponse(
     @SerializedName("stargazers_count")
     val stars: Int,
     val forks: Int,
+    @SerializedName("html_url")
+    val url: String,
     val license: LicenseResponse?
 )
 
@@ -42,5 +44,7 @@ class OwnerRepositoryResponse(
     val idOwner: Int,
     @SerializedName("avatar_url")
     val avatarUrl: String?,
-    val type: String
+    val type: String,
+    @SerializedName("html_url")
+    val url: String?
 )

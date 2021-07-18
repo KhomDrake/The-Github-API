@@ -32,6 +32,7 @@ data class Repository(
     val language: String?,
     val stars: String,
     val forks: Int,
+    val url: String,
     val license: License?
 ) : Parcelable {
     constructor(repositoryResponse: RepositoryResponse) : this(
@@ -50,6 +51,7 @@ data class Repository(
         repositoryResponse.language,
         repositoryResponse.stars.toString(),
         repositoryResponse.forks,
+        repositoryResponse.url,
         repositoryResponse.license?.run {
             License(repositoryResponse.license)
         }
@@ -75,12 +77,14 @@ class OwnerRepository(
     val login: String,
     val idOwner: Int,
     val avatarUrl: String?,
-    val type: String
+    val type: String,
+    val url: String?
 ) : Parcelable {
     constructor(owner: OwnerRepositoryResponse): this(
         owner.login,
         owner.idOwner,
         owner.avatarUrl,
-        owner.type
+        owner.type,
+        owner.url
     )
 }

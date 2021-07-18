@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:outlineProvider="background"
+    android:orientation="vertical"
+    android:layout_marginTop="16dp"
+    android:padding="16dp"
+    android:background="@drawable/background_rounded_white_medium">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Github.Style.Text.SubTitle.Primary"
+        tools:text="Author: Khom Drake"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="@style/Github.Style.Text.Normal.Primary"
+        tools:text="Description: Merge pull request #635 from googlesamples/todo-mvvm-live-kotlin_androidviewmodel\n\nKotlin branch - Fixing config change bug #574 - no more AndroidViewModels" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/access"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/commits_access_commit_text"
+        style="@style/Github.Style.Text.Normal.Secondary"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:alpha=".6"
+        style="@style/Github.Style.Text.Normal.Primary"
+        tools:text="Date: 08/09/2021" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

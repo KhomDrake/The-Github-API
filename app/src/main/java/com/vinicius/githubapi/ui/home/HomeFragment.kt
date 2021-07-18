@@ -114,10 +114,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun loadRepos() {
         lifecycleScope.launch {
             viewStateMachine.changeState(stateLoading)
-            homeViewModel.repositoriesPaging {
-                viewStateMachine.changeState(stateError)
-                errorView.handleException(it)
-            }.distinctUntilChanged().apply {
+            homeViewModel.repositoriesPaging().distinctUntilChanged().apply {
                 collectLatest {
                     adapter.submitData(it)
                 }
@@ -130,7 +127,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
             loadRepos()
         })
         adapter.addOnPagesUpdatedListener {
-            if(viewStateMachine.currentStateKey != stateData)
+            if(viewStateMachine.currentStateKey != stateData && viewStateMachine.isStarted)
                 viewStateMachine.changeState(stateData)
         }
     }

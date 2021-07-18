@@ -20,12 +20,8 @@ class HomeViewModel(private val repository: ReposRepository) : ViewModel() {
         selectedLanguage = newLanguage
     }
 
-    fun repositoriesPaging(
-        error: (Throwable) -> Unit
-    ) = repository.repositoriesPaging(selectedLanguage).map {
+    fun repositoriesPaging() = repository.repositoriesPaging(selectedLanguage).map {
             it.map { repositoryResponse -> Repository(repositoryResponse) }
-        }.catch {
-            error.invoke(it)
         }.cachedIn(viewModelScope)
 
 }

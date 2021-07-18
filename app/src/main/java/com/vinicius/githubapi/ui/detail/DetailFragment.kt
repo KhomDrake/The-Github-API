@@ -5,13 +5,16 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.fragment.navArgs
 import br.com.arch.toolkit.delegate.viewProvider
 import coil.load
 import com.google.android.material.tabs.TabLayout
 import com.vinicius.githubapi.R
 import com.vinicius.githubapi.data.ui.Repository
+import com.vinicius.githubapi.ui.detail.information.CommitsFragment
+import com.vinicius.githubapi.ui.detail.information.IssuesFragment
+import com.vinicius.githubapi.ui.detail.information.LicenseFragment
+import com.vinicius.githubapi.ui.detail.information.LinksFragment
 
 enum class RepositoryInformation {
     COMMITS,
@@ -19,6 +22,12 @@ enum class RepositoryInformation {
     LICENSE,
     LINKS
 }
+
+const val LICENSE_ARGS = "LICENSE_ARGS"
+const val LINKS_REPOSITORY_ARGS = "LINKS_REPOSITORY_ARGS"
+const val LINKS_USER_ARGS = "LINKS_USER_ARGS"
+const val REPOSITORY_FULL_NAME_ARGS = "REPOSITORY_FULL_NAME_ARGS"
+const val LANGUAGE_REPOSITORY_ARGS = "LANGUAGE_REPOSITORY_ARGS"
 
 class DetailFragment : Fragment(R.layout.detail_fragment) {
 
@@ -31,7 +40,6 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
     private val openIssues: AppCompatTextView by viewProvider(R.id.open_issues)
     private val stars: AppCompatTextView by viewProvider(R.id.stars)
     private val tabLayout: TabLayout by viewProvider(R.id.tab_information)
-    private val container: FragmentContainerView by viewProvider(R.id.container)
     private val args: DetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,20 +51,44 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
     private fun setupTabLayout(repository: Repository) {
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                when(tab.position) {
+                val fragment: Fragment? = when(tab.position) {
                     RepositoryInformation.COMMITS.ordinal -> {
-
+                        CommitsFragment().apply {
+                            arguments = Bundle().apply {
+                                putString(REPOSITORY_FULL_NAME_ARGS, repository.fullName)
+                                putString(LANGUAGE_REPOSITORY_ARGS, repository.language)
+                            }
+                        }
                     }
                     RepositoryInformation.ISSUES.ordinal -> {
-
+                        IssuesFragment().apply {
+                            arguments = Bundle().apply {
+                                putString(REPOSITORY_FULL_NAME_ARGS, repository.fullName)
+                            }
+                        }
                     }
                     RepositoryInformation.LICENSE.ordinal -> {
-
+                        LicenseFragment().apply {
+                            arguments = Bundle().apply {
+                                putParcelable(LICENSE_ARGS, repository.license)
+                            }
+                        }
                     }
                     RepositoryInformation.LINKS.ordinal -> {
-
+                        LinksFragment().apply {
+                            arguments = Bundle().apply {
+                                putString(LINKS_REPOSITORY_ARGS, repository.url)
+                                putString(LINKS_USER_ARGS, repository.owner.url)
+                            }
+                        }
                     }
-                    else -> Unit
+                    else -> null
+                }
+
+                fragment?.let {
+                    childFragmentManager.beginTransaction().apply {
+                        replace(R.id.container, it)
+                    }.commit()
                 }
             }
 
@@ -65,6 +97,18 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
             override fun onTabReselected(tab: TabLayout.Tab?) = Unit
 
         })
+
+        val fragment = CommitsFragment().apply {
+            arguments = Bundle().apply {
+                putString(REPOSITORY_FULL_NAME_ARGS, repository.fullName)
+                putString(LANGUAGE_REPOSITORY_ARGS, repository.language)
+            }
+        }
+
+        childFragmentManager.beginTransaction().apply {
+            replace(R.id.container, fragment)
+        }.commit()
+
     }
 
     private fun updateInformationRepository(repository: Repository) {

@@ -7,15 +7,14 @@
     android:paddingBottom="16dp"
     style="@style/Github.Style.Shimmer">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/background_rounded_shimmer"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
 </com.facebook.shimmer.ShimmerFrameLayout>

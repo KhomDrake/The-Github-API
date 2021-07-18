@@ -2,27 +2,27 @@ package com.vinicius.githubapi.remote.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.vinicius.githubapi.data.network.UserResponse
+import com.vinicius.githubapi.data.network.IssueResponse
 import com.vinicius.githubapi.remote.network.GithubApi
 
-class UserPagingSource(
+class IssuesPagingSource(
     private val githubApi: GithubApi,
-    private val user: String
-) : PagingSource<Int, UserResponse>() {
+    private val repo: String
+) : PagingSource<Int, IssueResponse>() {
 
-    override fun getRefreshKey(state: PagingState<Int, UserResponse>) = state.anchorPosition
+    override fun getRefreshKey(state: PagingState<Int, IssueResponse>) = state.anchorPosition
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, UserResponse> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, IssueResponse> {
         val page = params.key ?: DEFAULT_PAGE
         return runCatching {
-            val response = githubApi.searchUsersAsync(
-                user, page
+            val response = githubApi.searchIssuesAsync(
+                "repo:$repo", page, PER_PAGE
             )
 
-            val nextKey = if (20 * page >= 1000) null else page + 1
+            val nextKey = if (page * PER_PAGE >= response.totalCount) null else page + 1
 
             LoadResult.Page(
-                response.users,
+                response.items,
                 prevKey = if (page == DEFAULT_PAGE) null else page - 1,
                 nextKey = if(response.totalCount == 0) null else nextKey
             )

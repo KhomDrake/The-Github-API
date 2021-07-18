@@ -29,4 +29,18 @@
     <string name="search_users_title">Search Users</string>
     <string name="search_users_hint">Search users by username</string>
     <string name="search_users_home_user_text">Access user home</string>
+    <string name="search_empty_state_text">No user found</string>
+    <string name="home_empty_state_text">Has no repos</string>
+    <string name="license_empty_text">The repository don\'t have a license</string>
+
+    <string name="commits_access_commit_text">Access commit</string>
+    <string name="commits_author">Author: %s</string>
+    <string name="commits_description">Commit message:\n%s</string>
+    <string name="commits_date">Created: %s</string>
+
+    <string name="issues_title">Title: %s</string>
+    <string name="issues_author">Author: %s</string>
+    <string name="issues_date">Created: %s</string>
+    <string name="issues_state">State: %s</string>
+    <string name="issues_access_issue">Access issue</string>
 </resources>

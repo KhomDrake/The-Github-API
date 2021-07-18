@@ -4,7 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 class UsersResponse(
     @SerializedName("items")
-    val users: List<UserResponse>
+    val users: List<UserResponse>,
+    @SerializedName("total_count")
+    val totalCount: Int
 )
 
 class UserResponse(
