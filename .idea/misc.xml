@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/commit_item_loading.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/commits_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/commits_fragment_loading.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/home_fragment.xml" value="0.26766304347826086" />
+        <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/issue_item_loading.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/issues_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/issues_fragment_loading.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/search_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/vinic/StudioProjects/The-Github-API/app/src/main/res/layout/search_fragment_loading.xml" value="0.36666666666666664" />
       </map>

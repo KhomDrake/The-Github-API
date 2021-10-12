@@ -21,11 +21,11 @@ class ReposRepository(private val githubApi: GithubApi) {
 
     fun repositoriesPaging(
         language: String,
-        onError: MutableLiveData<Throwable>
+        errorFirstPage: MutableLiveData<Throwable>
     ) : Flow<PagingData<RepositoryResponse>> {
         return Pager(
             config = pagingConfig,
-            pagingSourceFactory = { RepositoryPagingSource(githubApi, language, onError) }
+            pagingSourceFactory = { RepositoryPagingSource(githubApi, language, errorFirstPage) }
         ).flow
     }
 }

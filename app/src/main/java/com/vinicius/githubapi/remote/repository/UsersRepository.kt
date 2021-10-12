@@ -14,9 +14,9 @@ class UsersRepository(private val githubApi: GithubApi) {
         prefetchDistance = 3
     )
 
-    fun searchUser(user: String, mutableLiveData: MutableLiveData<Throwable>) = Pager(
+    fun searchUser(user: String, errorFirstPage: MutableLiveData<Throwable>) = Pager(
         config = pagingConfig,
-        pagingSourceFactory = { UserPagingSource(githubApi, user, mutableLiveData) }
+        pagingSourceFactory = { UserPagingSource(githubApi, user, errorFirstPage) }
     ).flow
 
 }

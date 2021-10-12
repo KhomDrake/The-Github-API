@@ -3,11 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/root"
     android:paddingHorizontal="16dp">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/issues"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <com.vinicius.githubapi.ui.widget.ErrorView
+        android:id="@+id/error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <include layout="@layout/issues_fragment_loading"/>
 
 </FrameLayout>
