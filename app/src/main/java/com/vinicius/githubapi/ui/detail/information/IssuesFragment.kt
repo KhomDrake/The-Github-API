@@ -19,6 +19,7 @@ import com.vinicius.githubapi.R
 import com.vinicius.githubapi.ui.adapter.IssuesAdapter
 import com.vinicius.githubapi.ui.adapter.LoaderAdapter
 import com.vinicius.githubapi.ui.detail.REPOSITORY_FULL_NAME_ARGS
+import com.vinicius.githubapi.ui.handleException
 import com.vinicius.githubapi.ui.widget.ErrorView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -79,6 +80,7 @@ class IssuesFragment : Fragment(R.layout.issues_fragment) {
     private fun setupErrorView() {
         viewModel.error.observe(viewLifecycleOwner, Observer {
             if(it != null) {
+                errorView.handleException(it)
                 viewStateMachine.changeState(stateError)
             }
         })

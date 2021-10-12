@@ -16,6 +16,7 @@ class IssueResponse(
     val number: Int,
     val user: IssueUserResponse,
     val state: String,
+    @SerializedName("created_at")
     val createdAt: String?,
     val comments: Int,
     @SerializedName("close_at")

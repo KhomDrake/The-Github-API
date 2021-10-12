@@ -17,6 +17,7 @@ import com.vinicius.githubapi.R
 import com.vinicius.githubapi.extension.openLink
 import com.vinicius.githubapi.ui.adapter.LoaderAdapter
 import com.vinicius.githubapi.ui.adapter.UserAdapter
+import com.vinicius.githubapi.ui.handleException
 import com.vinicius.githubapi.ui.widget.ErrorView
 import com.vinicius.githubapi.ui.widget.SearchInput
 import kotlinx.coroutines.flow.collectLatest
@@ -57,6 +58,7 @@ class SearchFragment : Fragment(R.layout.search_fragment) {
 
         searchViewModel.error.observe(viewLifecycleOwner, Observer {
             if (it != null) {
+                errorView.handleException(it)
                 viewStateMachine.changeState(stateError)
             }
         })

@@ -20,6 +20,7 @@ import com.vinicius.githubapi.ui.adapter.CommitsAdapter
 import com.vinicius.githubapi.ui.adapter.LoaderAdapter
 import com.vinicius.githubapi.ui.detail.LANGUAGE_REPOSITORY_ARGS
 import com.vinicius.githubapi.ui.detail.REPOSITORY_FULL_NAME_ARGS
+import com.vinicius.githubapi.ui.handleException
 import com.vinicius.githubapi.ui.widget.ErrorView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -56,6 +57,7 @@ class CommitsFragment : Fragment(R.layout.commits_fragment) {
     private fun setupErrorView() {
         viewModel.error.observe(viewLifecycleOwner, Observer {
             if(it != null) {
+                errorView.handleException(it)
                 viewStateMachine.changeState(stateError)
             }
         })

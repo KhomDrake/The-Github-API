@@ -12,7 +12,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:background="@color/primary_color"
         app:defaultNavHost="true"
         app:navGraph="@navigation/navigation_github"
         app:layout_constraintTop_toTopOf="parent"

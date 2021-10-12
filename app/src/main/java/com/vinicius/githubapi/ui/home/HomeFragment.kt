@@ -68,6 +68,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun setupError() {
         homeViewModel.error.observe(viewLifecycleOwner, Observer {
             if(it != null) {
+                errorView.handleException(it)
                 viewStateMachine.changeState(stateError)
             }
         })

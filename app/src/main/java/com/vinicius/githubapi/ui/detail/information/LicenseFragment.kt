@@ -23,12 +23,9 @@ class LicenseFragment : Fragment(R.layout.license_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewStateMachine()
-        arguments?.run {
-            val license = getParcelable(LICENSE_ARGS) as? License
-            license?.let {
-                name.text = license.name
-                viewStateMachine.changeState(stateData)
-            }
+        arguments?.getParcelable<License>(LICENSE_ARGS)?.run {
+            this@LicenseFragment.name.text = name
+            viewStateMachine.changeState(stateData)
         } ?: run {
             viewStateMachine.changeState(stateEmpty)
         }
