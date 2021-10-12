@@ -40,16 +40,19 @@ Using Github API to created a app.
 
 # App
 
-<h1 align="center">
-  <img alt="Home" title="#Home" src="./gifs/Home.gif"/>
-</h1>
-<h1 align="center">
-  <img alt="SearchRepo" title="#SearchRepo" src="./gifs/Search Repo.gif"/>
-</h1>
-<h1 align="center">
-  <img alt="Detail" title="#Detail" src="./gifs/Detail.gif"/>
-</h1>
-<h1 align="center">
-  <img alt="SearchUsers" title="#SearchUsers" src="./gifs/Search Users.gif"/>
-</h1>
+<p align="center">
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" alt="Home" title="#Home" src="./gifs/Home.gif"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" alt="SearchRepo" title="#SearchRepo" src="./gifs/Search Repo.gif"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" alt="Detail" title="#Detail" src="./gifs/Detail.gif"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 5px" height="450" alt="SearchUsers" title="#SearchUsers" src="./gifs/Search Users.gif"/>
+  </kbd>
+</p>
+
 
