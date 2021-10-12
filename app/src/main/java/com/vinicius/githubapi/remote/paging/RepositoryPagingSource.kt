@@ -24,10 +24,12 @@ class RepositoryPagingSource(
                 "language:$language", page
             )
 
+            val nextKey = if (page * PER_PAGE >= response.totalCount) null else page + 1
+
             LoadResult.Page(
                 response.items,
                 prevKey = if (page == DEFAULT_PAGE) null else page - 1,
-                nextKey = if (20 * page >= 1000) null else page + 1
+                nextKey = if(response.totalCount == 0) null else nextKey
             )
         }.getOrElse {
             if(page == DEFAULT_PAGE)

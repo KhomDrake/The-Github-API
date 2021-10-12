@@ -7,14 +7,6 @@ import com.vinicius.githubapi.data.network.RepositoriesResponse
 import com.vinicius.githubapi.data.network.RepositoryResponse
 import kotlinx.parcelize.Parcelize
 
-class Repositories(
-    val items: List<Repository>
-) {
-    constructor(repositoriesResponse: RepositoriesResponse) : this(repositoriesResponse.items.map {
-        Repository(it)
-    })
-}
-
 @Parcelize
 data class Repository(
     val id: Int,

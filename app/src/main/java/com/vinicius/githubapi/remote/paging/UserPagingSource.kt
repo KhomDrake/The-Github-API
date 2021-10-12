@@ -21,7 +21,7 @@ class UserPagingSource(
                 user, page
             )
 
-            val nextKey = if (20 * page >= 1000) null else page + 1
+            val nextKey = if (page * PER_PAGE >= response.totalCount) null else page + 1
 
             LoadResult.Page(
                 response.users,

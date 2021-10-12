@@ -3,6 +3,8 @@ package com.vinicius.githubapi.data.network
 import com.google.gson.annotations.SerializedName
 
 class RepositoriesResponse(
+    @SerializedName("total_count")
+    val totalCount: Int,
     val items: List<RepositoryResponse>
 )
 
