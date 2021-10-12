@@ -1,5 +1,7 @@
 package com.vinicius.githubapi.ui.search
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
@@ -10,8 +12,19 @@ import kotlinx.coroutines.flow.map
 
 class SearchViewModel(private val repository: UsersRepository): ViewModel() {
 
-    fun searchUser(user: String) = repository.searchUser(user)
-        .map { it.map { userResponse -> User(userResponse) } }
-        .cachedIn(viewModelScope)
+    private var user = ""
+    private val _error: MutableLiveData<Throwable> = MutableLiveData()
+
+    val error: LiveData<Throwable>
+        get() = _error
+
+    fun setUser(newUser: String) {
+        user = newUser
+    }
+
+    fun searchUser() =
+        repository.searchUser(user, _error)
+            .map { it.map { userResponse -> User(userResponse) } }
+            .cachedIn(viewModelScope)
 
 }

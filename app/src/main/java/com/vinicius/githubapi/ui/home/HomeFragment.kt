@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -60,6 +61,17 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         setupSearch()
         setupData()
         loadRepos()
+        setupError()
+
+    }
+
+    private fun setupError() {
+        homeViewModel.error.observe(viewLifecycleOwner, Observer {
+            if(it != null) {
+                viewStateMachine.changeState(stateError)
+            }
+        })
+
         errorView.setOnButtonErrorListener {
             loadRepos()
         }
@@ -114,10 +126,8 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun loadRepos() {
         lifecycleScope.launch {
             viewStateMachine.changeState(stateLoading)
-            homeViewModel.repositoriesPaging().distinctUntilChanged().apply {
-                collectLatest {
-                    adapter.submitData(it)
-                }
+            homeViewModel.repositoriesPaging().distinctUntilChanged().collectLatest {
+                adapter.submitData(it)
             }
         }
     }

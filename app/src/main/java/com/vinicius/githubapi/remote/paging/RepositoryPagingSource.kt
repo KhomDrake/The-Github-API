@@ -1,5 +1,6 @@
 package com.vinicius.githubapi.remote.paging
 
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.vinicius.githubapi.data.network.RepositoryResponse
@@ -9,7 +10,8 @@ const val DEFAULT_PAGE = 1
 
 class RepositoryPagingSource(
     private val githubApi: GithubApi,
-    private val language: String
+    private val language: String,
+    private val errorFirstPage: MutableLiveData<Throwable>
 ) :
     PagingSource<Int, RepositoryResponse>() {
 
@@ -28,6 +30,9 @@ class RepositoryPagingSource(
                 nextKey = if (20 * page >= 1000) null else page + 1
             )
         }.getOrElse {
+            if(page == DEFAULT_PAGE)
+                errorFirstPage.postValue(it)
+
             LoadResult.Error(it)
         }
     }

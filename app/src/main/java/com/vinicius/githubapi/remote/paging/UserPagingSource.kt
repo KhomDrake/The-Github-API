@@ -1,5 +1,6 @@
 package com.vinicius.githubapi.remote.paging
 
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.vinicius.githubapi.data.network.UserResponse
@@ -7,7 +8,8 @@ import com.vinicius.githubapi.remote.network.GithubApi
 
 class UserPagingSource(
     private val githubApi: GithubApi,
-    private val user: String
+    private val user: String,
+    private val errorFirstPage: MutableLiveData<Throwable>
 ) : PagingSource<Int, UserResponse>() {
 
     override fun getRefreshKey(state: PagingState<Int, UserResponse>) = state.anchorPosition
@@ -27,6 +29,8 @@ class UserPagingSource(
                 nextKey = if(response.totalCount == 0) null else nextKey
             )
         }.getOrElse {
+            if(page == DEFAULT_PAGE)
+                errorFirstPage.postValue(it)
             LoadResult.Error(it)
         }
     }
