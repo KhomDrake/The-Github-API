@@ -69,7 +69,8 @@ dependencies {
     debugImplementation "androidx.fragment:fragment-testing:1.3.6"
 
     androidTestImplementation "io.mockk:mockk:1.10.0"
-    androidTestImplementation "io.mockk:mockk-android:1.10.0"
+    androidTestImplementation('io.mockk:mockk-android:1.10.0') { exclude module: 'objenesis' }
+    androidTestImplementation 'org.objenesis:objenesis:2.6'
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "androidx.test.espresso:espresso-intents:3.4.0"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:3.4.0"
