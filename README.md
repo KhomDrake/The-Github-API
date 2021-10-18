@@ -23,6 +23,8 @@ Using Github API to created a app.
     - [x] Commits
     - [x] License
     - [x] Links
+- [ ] Config Jacoco
+- [ ] Run UI Tests on CI
 
 # Using
 - Koin
@@ -42,16 +44,34 @@ Using Github API to created a app.
 
 <p align="center">
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" alt="Home" title="#Home" src="./gifs/Home.gif"/>
+    <img width="250" style="border-radius: 2px" height="450" alt="Home - Loading" title="#Home" src="./images/1.png"/>
   </kbd>
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" alt="SearchRepo" title="#SearchRepo" src="./gifs/Search Repo.gif"/>
+    <img width="250" style="border-radius: 2px" height="450" alt="Home - Repos" title="#Home" src="./images/2.png"/>
   </kbd>
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" alt="Detail" title="#Detail" src="./gifs/Detail.gif"/>
+    <img width="250" style="border-radius: 2px" height="450" alt="Home - Search Repo" title="#Home" src="./images/3.png"/>
   </kbd>
   <kbd>
-    <img width="250" style="border-radius: 5px" height="450" alt="SearchUsers" title="#SearchUsers" src="./gifs/Search Users.gif"/>
+    <img width="250" style="border-radius: 2px" height="450" alt="Home - Search Repos Java" title="#Home" src="./images/4.png"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 2px" height="450" alt="Detail - Commits" title="#Detail" src="./images/5.png"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 2px" height="450" alt="Detail - Issues" title="#Detail" src="./images/6.png"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 2px" height="450" alt="Detail - License" title="#Detail" src="./images/7.png"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 2px" height="450" alt="Detail - Links" title="#Detail" src="./images/8.png"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 2px" height="450" alt="SearchUsers" title="#SearchUsers" src="./images/9.png"/>
+  </kbd>
+  <kbd>
+    <img width="250" style="border-radius: 2px" height="450" alt="SearchUsers" title="#SearchUsers" src="./images/10.png"/>
   </kbd>
 </p>
 
