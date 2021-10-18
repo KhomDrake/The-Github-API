@@ -26,6 +26,10 @@ jobs:
       - checkout
 
       # The next step will run the unit tests
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
+
       - android/run-tests:
           test-command: ./gradlew lint testDebug --continue
 
