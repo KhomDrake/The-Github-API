@@ -35,7 +35,7 @@ jobs:
 
       # Then start the emulator and run the Instrumentation tests!
       - android/start-emulator-and-run-tests:
-          test-command: ./gradlew connectedDebugAndroidTest
+          test-command: ./gradlew jacocoTestReport
           system-image: system-images;android-29;google_apis;x86
 
       # And finally run the release build
