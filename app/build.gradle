@@ -3,7 +3,10 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id "androidx.navigation.safeargs.kotlin"
+    id "jacoco"
 }
+
+apply from: "$rootDir/gradle/coverage.gradle"
 
 android {
     compileSdkVersion 30
@@ -23,6 +26,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
         }
     }
     compileOptions {
