@@ -23,8 +23,8 @@ Using Github API to created a app.
     - [x] Commits
     - [x] License
     - [x] Links
-- [ ] Config Jacoco
-- [ ] Run UI Tests on CI
+- [x] Config Jacoco
+- [x] Run UI Tests on CI
 
 # Using
 - Koin
