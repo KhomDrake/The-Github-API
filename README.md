@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/KhomDrake/The-Github-API/tree/main.svg?style=svg)](https://circleci.com/gh/KhomDrake/The-Github-API/tree/main)
+
 # The-Github-API
 
 Using Github API to created a app.
